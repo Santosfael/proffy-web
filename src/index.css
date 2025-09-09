@@ -29,29 +29,29 @@
 @font-face {
   font-family: ArchivoBold;
   font-style: normal;
-  src: url("./assets/fonts/Archivo-Bold.ttf");
+  src: url("./assets/fonts/Archivo/Archivo-Bold.ttf");
 }
 
 @font-face {
   font-family: ArchivoRegular;
   font-style: normal;
-  src: url("./assets/fonts/Archivo-Regular.ttf");
+  src: url("./assets/fonts/Archivo/Archivo-Regular.ttf");
 }
 
 @font-face {
   font-family: ArchivoSemiBold;
   font-style: normal;
-  src: url("./assets/fonts/Archivo-SemiBold.ttf");
+  src: url("./assets/fonts/Archivo/Archivo-SemiBold.ttf");
 }
 
 @font-face {
   font-family: PoppinsRegular;
   font-style: normal;
-  src: url("./assets/fonts/Poppins-Regular.ttf");
+  src: url("./assets/fonts/Poppins/Poppins-Regular.ttf");
 }
 
 @font-face {
   font-family: PoppinsSemiBold;
   font-style: normal;
-  src: url("./assets/fonts/Poppins-SemiBold.ttf");
+  src: url("./assets/fonts/Poppins/Poppins-SemiBold.ttf");
 }
