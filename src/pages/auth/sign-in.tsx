@@ -1,16 +1,12 @@
-import background from '../../assets/background.svg'
-import logo from '../../assets/logo.svg'
 import heart from '../../assets/heart.svg'
 
 import { Check } from 'lucide-react'
+import { BackgroundIntro } from '../../components/background-intro'
 
 export function SignIn() {
     return (
     <div className="grid min-h-screen grid-cols-5 antialiased">
-      <div className="bg-purple flex items-center justify-center col-span-3 relative">
-        <img src={background} alt="background image" className="absolute"/>
-        <img src={logo} alt="background image" className="absolute"/>
-      </div>
+      <BackgroundIntro />
       
       <div className="flex flex-col bg-background h-full items-center justify-center col-span-2">
           <div className="p-8">
