@@ -6,6 +6,7 @@ import heart from '../../assets/heart.svg'
 import { Check } from 'lucide-react'
 import { BackgroundIntro } from '../../components/background-intro'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { toast } from 'sonner'
 
 
 const signInForm = z.object({
@@ -32,8 +33,15 @@ export function SignIn() {
     })
 
     async function handleSignIn(data: SignInForm) {
-        console.log(data)
-        await new Promise((resolve) => setTimeout(resolve, 2000))
+        try {
+            throw new Error()
+            console.log(data)
+            await new Promise((resolve) => setTimeout(resolve, 2000))
+            toast.success('Credenciais validas')
+        } catch {
+            toast.error('Credenciais inválidas')
+        }
+        
         reset()
     }
 
