@@ -2,6 +2,8 @@ import background from '../../assets/background.svg'
 import logo from '../../assets/logo.svg'
 import heart from '../../assets/heart.svg'
 
+import { Check } from 'lucide-react'
+
 export function SignIn() {
     return (
     <div className="grid min-h-screen grid-cols-5 antialiased">
@@ -30,14 +32,21 @@ export function SignIn() {
                 />
 
                 <div className='gap-4 flex flex-row mt-6 mb-10 justify-between'>
-                  <div className='gap-4 flex flex-row'>
-                    <input type="checkbox" className="w-6 h-6 bg-green border-0" />
-                    <p className="font-poppins-regular font-base text-text-complement">Lembrar-me</p>
-                  </div>
-                  <button type="button" className="font-poppins-regular font-base text-text-complement">Esqueci minha senha</button>
+                  <label htmlFor="checkbox-remember" className="flex items-center gap-2 cursor-pointer">
+                    <span className="relative flex items-center justify-center">
+                        <input id="checkbox-remember" type="checkbox" className="w-6 h-6 rounded-lg checked:bg-green bg-white appearance-none" />
+                        <Check
+                            className="absolute w-4 h-4 text-white checked:opacity-100"
+                        />
+                    </span>
+                    <span className="font-poppins-regular font-base text-text-complement">
+                        Lembrar-me
+                    </span>
+                  </label>
+                  <button type="button" className="font-poppins-regular font-base text-text-complement cursor-pointer">Esqueci minha senha</button>
                 </div>
 
-                <button type="submit" className="w-full bg-green p-5 border-none rounded-lg font-archivo-semibold text-white-shape">
+                <button type="submit" className="w-full bg-green p-5 border-none rounded-lg font-archivo-semibold text-white-shape cursor-pointer">
                   Entrar
                 </button>
               </form>
@@ -46,7 +55,7 @@ export function SignIn() {
               <div className="flex flex-row justify-between">
                 <div className="flex flex-col">
                   <p className="font-poppins-regular text-text-complement">Não tem conta?</p>
-                  <button type="button" className="font-poppins-semibold text-left underline text-purple">
+                  <button type="button" className="font-poppins-semibold text-left underline text-purple cursor-pointer">
                     Cadastre-se
                   </button>
                 </div>
