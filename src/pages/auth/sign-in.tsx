@@ -7,6 +7,7 @@ import { Check } from 'lucide-react'
 import { BackgroundIntro } from '../../components/background-intro'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { toast } from 'sonner'
+import { Input } from '../../components/input'
 
 
 const signInForm = z.object({
@@ -55,28 +56,22 @@ export function SignIn() {
                 <h1 className='text-3xl font-poppins-semibold text-text-title'>Fazer Login</h1>
                 
                 <form onSubmit={handleSubmit(handleSignIn)}>
-                    <input
-                    type="email"
-                    id="email"
-                    placeholder="E-mail"
-                    {...register('email')}
-                    className={`block w-full p-5 text-base font-poppins-regular rounded-lg rounded-b-none focus:outline-none
-                        ${errors.email
-                        ? "border-2 border-red-500 bg-red-100 placeholder-red-400 focus:border-red-500 focus:border-2"
-                        : "border-2 border-gray-lines-in-white bg-white-shape text-text-complement focus:border-s-purple focus:border-s-4"
-                        }`}
+                    <Input
+                        id="email"
+                        type="email"
+                        placeholder="E-mail"
+                        register={register}
+                        error={errors.email}
+                        rounded="top"
                     />
-                    
-                    <input
-                    type="password"
-                    id="password"
-                    placeholder="Senha"
-                    {...register('password')}
-                    className={`block w-full p-5 text-base font-poppins-regular rounded-lg rounded-t-none focus:outline-none border-t-0
-                        ${errors.password
-                        ? "border-2 border-red-500 bg-red-100 placeholder-red-400 focus:border-red-500 focus:border-2"
-                        : "border-2 border-gray-lines-in-white bg-white-shape text-text-complement focus:border-s-purple focus:border-s-4"
-                        }`}
+
+                    <Input
+                        type="password"
+                        id="password"
+                        placeholder="Senha"
+                        register={register}
+                        error={errors.password}
+                        rounded="bottom"
                     />
 
                     <div className='gap-4 flex flex-row mt-6 mb-10 justify-between'>
