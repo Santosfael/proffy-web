@@ -4,6 +4,9 @@ import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
+import { Button } from "../../components/button";
+
+import goBack from "../../assets/goback.svg"
 
 const signUpForm = z.object({
     name: z.string().min(4, 'Digite um nome válido'),
@@ -42,64 +45,66 @@ export function SignUp() {
     }
     return (
         <div className="grid min-h-screen grid-cols-5 antialiased">      
-          <div className="flex flex-col bg-background h-full items-center justify-center col-span-2">
-            <div className="p-8">
-              <div className='w-[352px] flex flex-col justify-center gap-6'>
-                <h1 className='text-3xl font-poppins-semibold text-text-title'>Cadastro</h1>
+          <div className="flex flex-col bg-background h-full col-span-2 items-center justify-center">
+            <div className="relative w-[352px]">
+              <button className="absolute left-0 cursor-pointer">
+                <img src={goBack} alt="" className="w-8 h-12" />
+              </button>
 
-                <h3 className="font-poppins-regular text-base text-text-base">
-                  Preencha os dados abaixo<br/>para começar.
-                </h3>
-                
-                <form onSubmit={handleSubmit(handleSignIn)}>
-                  <Input
-                      id="name"
-                      type="text"
-                      placeholder="Nome"
-                      register={register}
-                      error={errors.name}
-                      rounded="top"
-                  />
+              <div className="flex flex-col">
+                <div className="pt-30">
+                  <div className='flex flex-col justify-center gap-6'>
+                    <h1 className='text-3xl font-poppins-semibold text-text-title'>Cadastro</h1>
 
-                  <Input
-                      id="lastName"
-                      type="text"
-                      placeholder="Sobrenome"
-                      register={register}
-                      error={errors.lastName}
-                      rounded="none"
-                  />
+                    <h3 className="font-poppins-regular text-base text-text-base">
+                      Preencha os dados abaixo<br/>para começar.
+                    </h3>
+                    
+                    <form onSubmit={handleSubmit(handleSignIn)}>
+                      <Input
+                          id="name"
+                          type="text"
+                          placeholder="Nome"
+                          register={register}
+                          error={errors.name}
+                          rounded="top"
+                      />
 
-                  <Input
-                      id="email"
-                      type="email"
-                      placeholder="E-mail"
-                      register={register}
-                      error={errors.email}
-                      rounded="none"
-                  />
+                      <Input
+                          id="lastName"
+                          type="text"
+                          placeholder="Sobrenome"
+                          register={register}
+                          error={errors.lastName}
+                          rounded="none"
+                      />
 
-                  <Input
-                      id="password"
-                      type="password"
-                      placeholder="Senha"
-                      register={register}
-                      error={errors.password}
-                      rounded="bottom"
-                  />
+                      <Input
+                          id="email"
+                          type="email"
+                          placeholder="E-mail"
+                          register={register}
+                          error={errors.email}
+                          rounded="none"
+                      />
 
-                  <button
-                    type="submit"
-                    disabled={isSubmitting || !isValid}
-                    className={`w-full p-5 border-none rounded-lg font-archivo-semibold mt-10
-                    ${isSubmitting || !isValid
-                    ? "bg-gray-shape text-text-complement cursor-not-allowed" 
-                    : "bg-green opacity-90 hover:bg-green hover:opacity-100  text-white cursor-pointer"
-                    }`}
-                  >
-                    Concluir cadastro
-                  </button>
-                </form>
+                      <Input
+                          id="password"
+                          type="password"
+                          placeholder="Senha"
+                          register={register}
+                          error={errors.password}
+                          rounded="bottom"
+                      />
+
+                      <Button
+                        type="submit"
+                        text="Concluir cadastro"
+                        disabled={isSubmitting || !isValid}
+                      />
+                    </form>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
