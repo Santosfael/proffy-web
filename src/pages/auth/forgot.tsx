@@ -79,6 +79,7 @@ export function Forgot() {
                         type="submit"
                         text="Enviar"
                         disabled={isSubmitting || !isValid}
+                        link="/forgot/send-email"
                       />
                     </form>
                   </div>
