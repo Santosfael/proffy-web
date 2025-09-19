@@ -40,11 +40,10 @@ export function SignUp() {
         navigate(-1)
     }
 
-    async function handleSignIn(data: SignUpForm) {
+    async function handleSignUp(data: SignUpForm) {
         try {
             console.log(data)
             await new Promise((resolve) => setTimeout(resolve, 2000))
-            toast.success('Credenciais válidas')
         } catch {
             toast.error('Credenciais inválidas')
         }
@@ -68,7 +67,7 @@ export function SignUp() {
                       Preencha os dados abaixo<br/>para começar.
                     </h3>
                     
-                    <form onSubmit={handleSubmit(handleSignIn)}>
+                    <form onSubmit={handleSubmit(handleSignUp)}>
                       <Input
                           id="name"
                           type="text"
