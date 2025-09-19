@@ -110,16 +110,16 @@ export function SignIn() {
                 <footer className="mt-30 w-full">
                 <div className="flex flex-row justify-between">
                     <div className="flex flex-col">
-                    <p className="font-poppins-regular text-text-complement">Não tem conta?</p>
-                    <button type="button" className="font-poppins-semibold text-left underline text-purple cursor-pointer">
-                        <Link to={'/sign-up'}>Cadastre-se</Link>
-                    </button>
+                        <p className="font-poppins-regular text-text-complement">Não tem conta?</p>
+                        <button type="button" className="font-poppins-semibold text-left underline text-purple cursor-pointer">
+                            <Link to={'/sign-up'}>Cadastre-se</Link>
+                        </button>
+                        </div>
+                        <div className='flex flex-row gap-2 items-center'>
+                            <p className="font-poppins-regular text-text-complement">é de graça</p> 
+                            <img src={heart} alt="coração" className="w-4"/>
+                        </div>
                     </div>
-                    <div className='flex flex-row gap-2 items-center'>
-                    <p className="font-poppins-regular text-text-complement">é de graça</p> 
-                    <img src={heart} alt="coração" className="w-4"/>
-                    </div>
-                </div>
                 </footer>
             </div>
             </div>

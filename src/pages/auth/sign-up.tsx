@@ -1,12 +1,14 @@
-import { BackgroundIntro } from "../../components/background-intro";
-import { Input } from "../../components/input";
 import z from "zod";
+import { useNavigate } from "react-router";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { Button } from "../../components/button";
 
-import goBack from "../../assets/goback.svg"
+import { BackgroundIntro } from "../../components/background-intro";
+import { Input } from "../../components/input";
+import goBack from "../../assets/goback.svg";
+
 
 const signUpForm = z.object({
     name: z.string().min(4, 'Digite um nome válido'),
@@ -18,25 +20,31 @@ const signUpForm = z.object({
 type SignUpForm = z.infer<typeof signUpForm>
 
 export function SignUp() {
-    const { 
-            register,
-            handleSubmit,
-            reset,
-            formState: {
-                isSubmitting,
-                errors,
-                isValid
-              }
-            } = useForm<SignUpForm>({
-        resolver: zodResolver(signUpForm),
-        mode: "onChange"
+
+   const navigate = useNavigate()
+  const { 
+      register,
+      handleSubmit,
+      reset,
+      formState: {
+          isSubmitting,
+          errors,
+          isValid
+        }
+      } = useForm<SignUpForm>({
+      resolver: zodResolver(signUpForm),
+      mode: "onChange"
     })
+
+    function goBackPage() {
+        navigate(-1)
+    }
 
     async function handleSignIn(data: SignUpForm) {
         try {
             console.log(data)
             await new Promise((resolve) => setTimeout(resolve, 2000))
-            toast.success('Credenciais validas')
+            toast.success('Credenciais válidas')
         } catch {
             toast.error('Credenciais inválidas')
         }
@@ -47,7 +55,7 @@ export function SignUp() {
         <div className="grid min-h-screen grid-cols-5 antialiased">      
           <div className="flex flex-col bg-background h-full col-span-2 items-center justify-center">
             <div className="relative w-[352px]">
-              <button className="absolute left-0 cursor-pointer">
+              <button className="absolute left-0 cursor-pointer" onClick={goBackPage}>
                 <img src={goBack} alt="" className="w-8 h-12" />
               </button>
 
