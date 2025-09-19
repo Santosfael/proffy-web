@@ -8,6 +8,7 @@ import { BackgroundIntro } from '../../components/background-intro'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { toast } from 'sonner'
 import { Input } from '../../components/input'
+import { Button } from '../../components/button'
 
 
 const signInForm = z.object({
@@ -74,7 +75,7 @@ export function SignIn() {
                         rounded="bottom"
                     />
 
-                    <div className='gap-4 flex flex-row mt-6 mb-10 justify-between'>
+                    <div className='gap-4 flex flex-row mt-6 justify-between'>
                     <label htmlFor="checkbox-remember" className="flex items-center gap-2 cursor-pointer">
                         <span className="relative flex items-center justify-center">
                             <input id="checkbox-remember" type="checkbox" className="w-6 h-6 rounded-lg checked:bg-green bg-white appearance-none" />
@@ -90,21 +91,15 @@ export function SignIn() {
                         type="button"
                         className="font-poppins-regular font-base text-text-complement cursor-pointer"
                     >
-                        Esqueci minha senha
+                        <Link to={'/forgot'}>Esqueci minha senha</Link>
                     </button>
                     </div>
 
-                    <button
+                    <Button
                         type="submit"
                         disabled={isSubmitting || !isValid}
-                        className={`w-full p-5 border-none rounded-lg font-archivo-semibold
-                        ${isSubmitting || !isValid
-                        ? "bg-gray-shape text-text-complement cursor-not-allowed" 
-                        : "bg-green opacity-90 hover:bg-green hover:opacity-100  text-white cursor-pointer"
-                        }`}
-                    >
-                        Entrar
-                    </button>
+                        text='Entrar'
+                    />
                 </form>
                 </div>
                 <footer className="mt-30 w-full">
