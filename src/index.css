@@ -17,4 +17,41 @@
   --color-text-input: oklch(80.42% 0.023 300.11);
   --color-text-purple-base: oklch(84.94% 0.086 298.08);
   --color-text-purple-complement: oklch(68.43% 0.170 295.21);
+
+  /* Custom Fonts */
+  --font-archivo-bold: ArchivoBold, "sans-serif";
+  --font-archivo-semibold: ArchivoSemiBold, "sans-serif";
+  --font-archivo-regular: ArchivoRegular, "sans-serif";
+  --font-poppins-semibold: PoppinsSemiBold, "sans-serif";
+  --font-poppins-regular: PoppinsRegular, "sans-serif";
+}
+
+@font-face {
+    font-family: ArchivoBold;
+    font-style: normal;
+    src: url("./assets/fonts/Archivo/Archivo-Bold.ttf");
+}
+
+@font-face {
+  font-family: ArchivoRegular;
+  font-style: normal;
+  src: url("./assets/fonts/Archivo/Archivo-Regular.ttf");
+}
+
+@font-face {
+  font-family: ArchivoSemiBold;
+  font-style: normal;
+  src: url("./assets/fonts/Archivo/Archivo-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: PoppinsRegular;
+  font-style: normal;
+  src: url("./assets/fonts/Poppins/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: PoppinsSemiBold;
+  font-style: normal;
+  src: url("./assets/fonts/Poppins/Poppins-SemiBold.ttf");
 }
