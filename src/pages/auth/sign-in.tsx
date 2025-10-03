@@ -1,34 +1,33 @@
 import { Check } from 'lucide-react'
 
-import background from '../../assets/background.svg'
-import logo from '../../assets/logo.svg'
 import heart from '../../assets/heart.svg'
+import { BackgroundIntro } from '../../components/background-intro'
+import { Input } from '../../components/input'
+import { Button } from '../../components/button'
 
 export function SignIn() {
     return (
         <div className="grid min-h-screen grid-cols-5 antialiased">
-            <div className="bg-another-purple col-span-3 flex items-center justify-center relative">
-                <img src={background} alt="" className="absolute w-[663px] h-[584px]" />
-                <img src={logo} alt="" className="absolute" />
-            </div>
+            <BackgroundIntro />
             <div className="bg-background col-span-2 flex flex-col h-full items-center justify-center">
                 <div className="p-8">
                 <div className="w-[352px] flex flex-col justify-center gap-6">
                     <h1 className="text-3xl font-poppins-semibold text-text-title">Fazer Login</h1>
 
                     <form action="">
-                    <input
+                    <Input
                         type="email"
                         id="email"
-                        className="block w-full text-text-complement p-5 text-base bg-white-shape font-poppins-regular border-2 border-gray-lines-in-white rounded-t-lg"
                         placeholder="E-mail"
+                        rounded="top"
                     />
 
-                    <input
+                    <Input
                         type="password"
                         id="password"
-                        className="block w-full text-text-complement p-5 text-base bg-white-shape font-poppins-regular border-2 border-gray-lines-in-white rounded-b-lg border-t-0"
                         placeholder="Senha"
+                        rounded="bottom"
+                        borderWidthTop="border-t-0"
                     />
 
                     <div className="gap-4 flex flex-row mt-6 mb-10 justify-between">
@@ -56,12 +55,11 @@ export function SignIn() {
                         </button>
                     </div>
 
-                    <button
+                    <Button
                         type="submit"
-                        className="w-full bg-green p-5 border-none rounded-lg font-archivo-semibold text-white-shape"
-                    >
-                        Entrar
-                    </button>
+                        disabled={false}
+                        title="Entrar"
+                    />
                     </form>
                 </div>
 
