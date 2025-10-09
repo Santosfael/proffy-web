@@ -1,12 +1,17 @@
+import type { FieldError } from "react-hook-form"
+
 type InputProps = {
     id: string
     type?: string
     placeholder: string
     rounded: "all" | "top" | "bottom" | "none"
     borderWidthTop?: string
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    register: any
+    error?: FieldError
 }
 
-export function Input({ id, type, placeholder, rounded = "all", borderWidthTop = "" }: InputProps) {
+export function Input({ id, type, placeholder, rounded = "all", borderWidthTop = "", register, error }: InputProps) {
     const roundedClass = {
         all: "rounded-lg",
         top: "rounded-t-lg",
@@ -18,7 +23,13 @@ export function Input({ id, type, placeholder, rounded = "all", borderWidthTop =
         <input
             type={type}
             id={id}
-            className={`block w-full text-text-complement p-5 text-base bg-white-shape font-poppins-regular border-2 border-gray-lines-in-white ${roundedClass} ${borderWidthTop}`}
+            {...register(id)}
+            className={`block w-full p-5 text-base font-poppins-regular ${roundedClass} focus:outline-none
+                ${error
+                    ? "border-2 border-red-500 bg-red-100 placeholder-red-400 focus:border-red-500"
+                    : `border-2 border-gray-lines-in-white bg-white-shape text-text-complement focus:border-s-purple focus:border-s-4 ${borderWidthTop}`
+                }
+            `}
             placeholder={placeholder}
         />
     )
