@@ -8,6 +8,7 @@ import { BackgroundIntro } from '../../components/background-intro'
 import { Input } from '../../components/input'
 import { Button } from '../../components/button'
 import { toast } from 'sonner'
+import { Link } from 'react-router'
 
 const signInForm = z.object({
     email: z.email("E-mail inválido"),
@@ -108,7 +109,7 @@ export function SignIn() {
                         <div className="flex flex-col">
                         <p className="font-poppins-regular text-text-complement">Não tem conta?</p>
                         <button type="button" className="font-poppins-semibold text-left underline text-purple">
-                            Cadastre-se
+                            <Link to={'/sign-up'}>Cadastre-se</Link>
                         </button>
                         </div>
                         <div className='flex flex-row gap-2 items-center'>

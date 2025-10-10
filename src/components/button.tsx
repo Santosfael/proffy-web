@@ -9,7 +9,7 @@ export function Button({ type = "submit", title, disabled }: ButtonProps) {
         <button
             type={type}
             disabled={disabled}
-            className={`w-full p-5 border-none rounded-lg font-archivo-semibold
+            className={`w-full p-5 border-none rounded-lg font-archivo-semibold mt-10
                     ${disabled
                         ? "bg-gray-shape text-text-complement cursor-not-allowed"
                         : "bg-green opacity-80 hover:bg-green hover:opacity-100 transition text-white cursor-pointer"
