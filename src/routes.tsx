@@ -1,8 +1,10 @@
 import { createBrowserRouter } from 'react-router'
 import { SignIn } from './pages/auth/sign-in'
 import { SignUp } from './pages/auth/sign-up'
+import { Forgot } from './pages/auth/forgot'
 
 export const router = createBrowserRouter([
     { path: '/sign-in', element: <SignIn /> },
-    { path: '/sign-up', element: <SignUp /> }
+    { path: '/sign-up', element: <SignUp /> },
+    { path: '/forgot', element: <Forgot /> }
 ])
