@@ -3,6 +3,7 @@ import avatar from "../../assets/avatar.svg"
 import logo from "../../assets/logo.svg"
 import ilusta from "../../assets/Ilustra.svg"
 import heart from "../../assets/heart.svg"
+import { Link } from "react-router"
 
 export function Home() {
     return (
@@ -45,15 +46,18 @@ export function Home() {
                     </div>
 
                     <div className="flex flex-row justify-center items-center gap-4">
-                        <button className="flex gap-6 w-[282px] h-[104px] bg-another-purple transition hover:bg-purple rounded-lg justify-center items-center cursor-pointer">
+                        <Link to={"/study"} className="flex gap-6 w-[282px] h-[104px] bg-another-purple transition hover:bg-purple rounded-lg justify-center items-center cursor-pointer">
                             <BookOpen size={40} className="text-white"/>
                             <span className="font-archivo-bold text-2xl text-white">Estudar</span>
-                        </button>
+                        </Link>
 
-                        <button className="flex gap-6 w-[282px] h-[104px] bg-green hover:bg-green-dark transition rounded-lg justify-center items-center cursor-pointer">
+                        <Link
+                            to={"/give-classes"}
+                            className="flex gap-6 w-[282px] h-[104px] bg-green hover:bg-green-dark transition rounded-lg justify-center items-center cursor-pointer"
+                        >
                             <Presentation size={40} className="text-white"/>
                             <span className="font-archivo-bold text-2xl text-white">Dar aulas</span>
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

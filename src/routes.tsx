@@ -5,9 +5,11 @@ import { SignUp } from "./pages/auth/sign-up"
 import { RegisterCompleted } from "./pages/auth/register-completed"
 import { Forgot } from "./pages/auth/forgot"
 import { ForgotSend } from "./pages/auth/forgot-send"
+import { TeatcheList } from "./pages/app/teacher-list"
 
 export const router = createBrowserRouter([
     { path: '/', element: <Home/> },
+    { path: '/study', element: <TeatcheList /> },
     { path: '/sign-in', element: <SignIn/> },
     { path: '/',
         children: [
