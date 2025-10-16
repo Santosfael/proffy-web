@@ -46,7 +46,8 @@ export function InputSearch({
                         text-base
                         placeholder:text-text-input
                         border-gray-lines-in-white
-                        border-1`
+                        border-1
+                        pr-2`
                     }
             />
             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-[2px] bg-purple scale-x-0 transition-transform duration-300 peer-focus:scale-x-100"></span>

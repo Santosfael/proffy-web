@@ -146,9 +146,9 @@ export function TeacherForms() {
 
                     {scheduleItems.map(scheduleItem => {
                         return (
-                            <div key={scheduleItem.week_day} className="border-b-1 border-gray-lines-in-white">
-                                <div className="grid grid-cols-8 w-full gap-8 mb-4">
-                                    <div className="flex flex-col w-full mt-8 col-span-4">
+                            <div key={scheduleItem.week_day} className="border-b-1 w-full border-gray-lines-in-white">
+                                <div className="grid grid-cols-4 w-full gap-8 mb-4">
+                                    <div className="flex flex-col mt-8 col-span-2">
                                         <Select
                                             label="Dia da semana"
                                             name="week_day"
@@ -167,21 +167,23 @@ export function TeacherForms() {
                                         />
                                     </div>
 
-                                    <div className="flex flex-col w-full mt-8 col-span-2">
+                                    <div className="flex flex-col w-full mt-8 col-span-1">
                                         <InputSearch
                                             label="Das"
                                             name="from"
                                             labelColor="text-text-complement"
                                             bgColor="bg-white-shape"
+                                            type="time"
                                         />
                                     </div>
 
-                                    <div className="flex flex-col w-full mt-8 col-span-2">
+                                    <div className="flex flex-col w-full mt-8 col-span-1">
                                         <InputSearch
                                             label="Até"
                                             name="to"
                                             labelColor="text-text-complement"
                                             bgColor="bg-white-shape"
+                                            type="time"
                                         />
                                     </div>
                                 </div>
