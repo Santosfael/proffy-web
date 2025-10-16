@@ -34,33 +34,27 @@ export function TeatcheList() {
 
                 <form className="flex justify-between items-center min-w-4xl mt-12">
                     <div className="flex flex-col justify-items-start">
-                        <label
-                            htmlFor="subject"
-                            className="font-poppins-regular text-sm text-text-purple-base mb-2"
-                        >
-                            Matéria
-                        </label>
-                        <InputSearch />
+                        <InputSearch
+                            name="subject"
+                            label="Matéria"
+                            placeholder="Selecione"
+                        />
                     </div>
 
                      <div className="flex flex-col justify-items-start">
-                        <label
-                            htmlFor="subject"
-                            className="font-poppins-regular text-sm text-text-purple-base mb-2"
-                        >
-                            Dia da semana
-                        </label>
-                        <InputSearch />
+                        <InputSearch
+                            name="week_day"
+                            label="Dia da semana"
+                            placeholder="Selecione"
+                        />
                     </div>
 
                      <div className="flex flex-col justify-items-start">
-                        <label
-                            htmlFor="subject"
-                            className="font-poppins-regular text-sm text-text-purple-base mb-2"
-                        >
-                            Hora
-                        </label>
-                        <InputSearch />
+                        <InputSearch
+                            name="hour"
+                            label="Horário"
+                            placeholder="Selecione"
+                        />
                     </div>
                 </form>
             </div>

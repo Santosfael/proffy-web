@@ -6,10 +6,12 @@ import { RegisterCompleted } from "./pages/auth/register-completed"
 import { Forgot } from "./pages/auth/forgot"
 import { ForgotSend } from "./pages/auth/forgot-send"
 import { TeatcheList } from "./pages/app/teacher-list"
+import { TeacherForms } from "./pages/app/teacher-forms"
 
 export const router = createBrowserRouter([
     { path: '/', element: <Home/> },
     { path: '/study', element: <TeatcheList /> },
+    { path: '/give-classes', element: <TeacherForms /> },
     { path: '/sign-in', element: <SignIn/> },
     { path: '/',
         children: [
