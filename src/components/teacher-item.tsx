@@ -2,7 +2,7 @@ import whatsAppIcon from "../assets/Whatsapp.svg"
 
 export function TeacherItem() {
     return (
-        <article>
+        <article className="bg-white border-1 border-gray-lines-in-white rounded-lg mt-10">
             <header className="flex items-center py-[3.2rem] px-8">
                 <img
                     className="w-[8rem] h-[8rem] rounded-full"
@@ -102,7 +102,7 @@ export function TeacherItem() {
             </div>
 
             <footer
-                className="flex w-full mt-10 bg-white-shape items-center justify-between py-8 px-8 border-t-1 border-gray-lines-in-white"
+                className="flex w-full mt-10 bg-white-shape items-center justify-between py-8 px-8 border-t-1 border-gray-lines-in-white rounded-b-lg"
             >
                 <p className="font-poppins-regular text-sm text-text-complement flex items-center gap-4">
                     Preço/hora
