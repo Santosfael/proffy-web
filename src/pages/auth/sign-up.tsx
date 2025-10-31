@@ -39,6 +39,7 @@ export function SignUp() {
     async function handleSignUp(data: SignUpForm) {
         try {
             console.log(data)
+            navigate("/sign-up/finally-register")
         } catch {
             toast.error("Credenciais inválidas")
         }

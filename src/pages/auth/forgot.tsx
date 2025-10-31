@@ -36,6 +36,7 @@ export function Forgot() {
     async function handleForgot(data: ForgotForm) {
         try {
             console.log(data)
+            navigate("/forgot/finally-forgot")
         } catch {
             toast.error("Credenciais inválidas")
         }

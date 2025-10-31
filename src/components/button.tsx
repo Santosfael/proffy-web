@@ -1,14 +1,15 @@
-type ButtonProps = {
-    type?: "button" | "submit" | "reset"
+import type { ButtonHTMLAttributes } from "react"
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     title: string
     disabled?: boolean
 }
 
-export function Button({ type = "submit", title, disabled }: ButtonProps) {
+export function Button({ title, disabled, ...rest }: ButtonProps) {
     return (
         <button
-            type={type}
             disabled={disabled}
+            {...rest}
             className={`w-full p-5 border-none rounded-lg font-archivo-semibold mt-10
                     ${disabled
                         ? "bg-gray-shape text-text-complement cursor-not-allowed"
