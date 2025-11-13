@@ -17,6 +17,7 @@
   --color-text-input: oklch(80.42% 0.023 300.11);
   --color-text-purple-base: oklch(84.94% 0.086 298.08);
   --color-text-purple-complement: oklch(68.43% 0.170 295.21);
+  --color-green-dark: oklch(0.7034 0.1937 149.86);
 
   /* Custom Fonts */
   --font-archivo-bold: ArchivoBold, "sans-serif";
