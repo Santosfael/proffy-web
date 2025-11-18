@@ -1,4 +1,4 @@
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
@@ -9,6 +9,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { toast } from 'sonner'
 import { Input } from '../../components/input'
 import { Button } from '../../components/button'
+import { api } from '../../libs/axios'
 
 
 const signInForm = z.object({
@@ -19,6 +20,8 @@ const signInForm = z.object({
 type SignInForm = z.infer<typeof signInForm>
 
 export function SignIn() {
+
+    const navigate = useNavigate()
 
     const {
         register,
@@ -36,10 +39,13 @@ export function SignIn() {
 
     async function handleSignIn(data: SignInForm) {
         try {
-            throw new Error()
-            console.log(data)
-            await new Promise((resolve) => setTimeout(resolve, 2000))
+            await api.post('/sessions', {
+                email: data.email,
+                password: data.password
+            }
+        )
             toast.success('Credenciais validas')
+            navigate("/")
         } catch {
             toast.error('Credenciais inválidas')
         }

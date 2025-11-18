@@ -18,7 +18,7 @@ export function Button({ type = "submit", text, disabled = false, link = "" }: B
             : "bg-green opacity-90 hover:bg-green hover:opacity-100 transition text-white cursor-pointer"
             }`}
         >
-            <Link to={link}>{text}</Link>
+            {text}
         </button>
     )
 }
