@@ -3,10 +3,37 @@ import goBack from "../../assets/goback-another-purple.svg"
 import proffyLogo from "../../assets/proffy-logo.svg"
 import foundIcon from "../../assets/found-icon.svg"
 import { InputSearch } from "../../components/input-search"
-import { TeacherItem } from "../../components/teacher-item"
+import { TeacherItem, type Teacher } from "../../components/teacher-item"
 import { Select } from "../../components/select"
+import { useEffect, useState } from "react"
+import { api } from "../../libs/axios"
+
 
 export function TeatcheList() {
+
+    const [teachers, setTeachers] = useState<Teacher[]>([])
+    const [weekDay, setWeekDay] = useState("")
+    const [subject, setSubject] = useState("")
+    const [hour, setHour] = useState("")
+
+
+    useEffect(() => {
+        console.log(weekDay + subject + hour)
+        try {
+            if(hour.length > 4) {
+                api.get(`/classes?week_day=${weekDay}&subject=${subject}&time=${hour}`)
+                    .then( response => {
+                        setTeachers(response.data.classes)
+                    })
+            } else {
+                setTeachers([])
+            }
+        } catch (error) {
+            console.error(error)
+            
+        }
+    },[hour])
+
     return (
         <div className="w-full min-h-screen items-center flex flex-col align-top bg-background antialiased">
             <div className=" w-full flex flex-row justify-center items-center bg-dark-purple h-[64px]">
@@ -33,12 +60,17 @@ export function TeatcheList() {
                     </div>
                 </div>
 
-                <form className="flex justify-between items-center min-w-4xl mt-12">
+                <form
+                    className="flex justify-between items-center min-w-4xl mt-12"
+                   
+                >
                    <div className="flex flex-col w-[17rem]">
                         <Select
                             label="Matéria"
                             name="subject"
                             optionDefault="Selecione"
+                            value={subject}
+                            onChange={(e) => setSubject(e.target.value)}
                             options={[
                                 { value: "Artes", label: "Artes" },
                                 { value: "Biologia", label: "Biologia" },
@@ -57,9 +89,11 @@ export function TeatcheList() {
                     <div className="flex flex-col w-[17rem]">
                         <Select
                             label="Dia da semana"
-                            name="week_day"
+                            name="weekDay"
                             bgColor="bg-white-shape"
                             optionDefault="Selecione"
+                            value={weekDay}
+                            onChange={(e) => setWeekDay(e.target.value)}
                             options={[
                                 { value: "0", label: "Domingo" },
                                 { value: "1", label: "Segunda" },
@@ -74,18 +108,25 @@ export function TeatcheList() {
 
                      <div className="flex flex-col w-[17rem] justify-items-start">
                         <InputSearch
-                            name="hour"
                             label="Horário"
+                            name="hour"
                             placeholder="Selecione"
                             type="time"
+                            value={hour}
+                            onChange={(e) => setHour(e.target.value)}
                         />
                     </div>
                 </form>
             </div>
 
             <main className="flex flex-col w-full max-w-4xl justify-center mb-10 overflow-hidden">
-                <TeacherItem />
-                <TeacherItem />
+                {
+                    teachers?.map(classe => {
+                        return <TeacherItem key={classe.id}
+                            classe={classe}
+                         />
+                    }) ?? <p className="text-center py-10 text-gray-500">Nenhum professor encontrado.</p>
+                }
             </main>
         </div>
     )

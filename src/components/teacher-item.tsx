@@ -1,27 +1,43 @@
 import whatsAppIcon from "../assets/Whatsapp.svg"
 
-export function TeacherItem() {
+export interface UserData {
+    id: string,
+    name: string,
+    email: string,
+    avatar?: string,
+    whatsapp: string,
+    bio: string
+}
+
+export interface Teacher {
+    classe: {
+        id: string,
+        subject: string,
+        cost: string,
+        user: UserData
+    }
+}
+
+export function TeacherItem({ classe }: Teacher) {
     return (
         <article className="bg-white border-1 border-gray-lines-in-white rounded-lg mt-10">
             <header className="flex items-center py-[3.2rem] px-8">
                 <img
                     className="w-[8rem] h-[8rem] rounded-full"
                     src="https://avatars.githubusercontent.com/u/15871684?v=4"
-                    alt="Rafael Rocha"
+                    alt={classe.user.name}
                 />
                 <div className="ms-10">
                     <strong className="font-archivo-semibold text-2xl text-text-title block">
-                        Rafael Rocha
+                        {classe.user.name}
                     </strong>
                     <span className="font-poppins-regular text-base text-text-base block">
-                        Química
+                        {classe.subject}
                     </span>
                 </div>
             </header>
             <p className="px-8 font-poppins-regular text-base text-text-base">
-                Entusiasta das melhores tecnologias de química avançada.<br /><br />
-                Apaixonado por explodir coisas em laboratório e por mudar a vida das pessoas através de experiências.
-                Mais de 200.000 pessoas já passaram por uma das minhas explosões.
+                {classe.user.bio}
             </p>
 
             <div className="grid grid-cols-5 mx-8 gap-4 mt-8">
@@ -107,7 +123,7 @@ export function TeacherItem() {
                 <p className="font-poppins-regular text-sm text-text-complement flex items-center gap-4">
                     Preço/hora
                     <strong className="font-archivo-bold text-xl text-purple">
-                        R$ 80,00
+                        R$ {classe.cost},00
                     </strong>
                 </p>
                 <button className="flex gap-4 items-center bg-green hover:bg-green-dark cursor-pointer transition py-4 px-10 rounded-lg font-archivo-semibold text-base text-white" >
