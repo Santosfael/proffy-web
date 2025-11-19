@@ -18,13 +18,16 @@ export function TeatcheList() {
 
 
     useEffect(() => {
-        console.log(weekDay + subject + hour)
+
         try {
             if(hour.length > 4) {
                 api.get(`/classes?week_day=${weekDay}&subject=${subject}&time=${hour}`)
                     .then( response => {
+                        console.log()
                         setTeachers(response.data.classes)
                     })
+
+                console.log(teachers)
             } else {
                 setTeachers([])
             }
@@ -121,10 +124,13 @@ export function TeatcheList() {
 
             <main className="flex flex-col w-full max-w-4xl justify-center mb-10 overflow-hidden">
                 {
-                    teachers?.map(classe => {
-                        return <TeacherItem key={classe.id}
-                            classe={classe}
-                         />
+                    teachers?.map(teacher => {
+                        return <TeacherItem key={teacher.id}
+                                cost={teacher.cost}
+                                id={teacher.id}
+                                subject={teacher.subject}
+                                user={teacher.user}
+                            />
                     }) ?? <p className="text-center py-10 text-gray-500">Nenhum professor encontrado.</p>
                 }
             </main>

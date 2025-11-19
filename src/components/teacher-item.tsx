@@ -10,34 +10,32 @@ export interface UserData {
 }
 
 export interface Teacher {
-    classe: {
-        id: string,
-        subject: string,
-        cost: string,
-        user: UserData
-    }
+    id: string,
+    subject: string,
+    cost: string,
+    user: UserData
 }
 
-export function TeacherItem({ classe }: Teacher) {
+export function TeacherItem({ id, subject, cost, user }: Teacher) {
     return (
         <article className="bg-white border-1 border-gray-lines-in-white rounded-lg mt-10">
             <header className="flex items-center py-[3.2rem] px-8">
                 <img
                     className="w-[8rem] h-[8rem] rounded-full"
                     src="https://avatars.githubusercontent.com/u/15871684?v=4"
-                    alt={classe.user.name}
+                    alt={user.name}
                 />
                 <div className="ms-10">
                     <strong className="font-archivo-semibold text-2xl text-text-title block">
-                        {classe.user.name}
+                        {user.name}
                     </strong>
                     <span className="font-poppins-regular text-base text-text-base block">
-                        {classe.subject}
+                        {subject}
                     </span>
                 </div>
             </header>
             <p className="px-8 font-poppins-regular text-base text-text-base">
-                {classe.user.bio}
+                {user.bio}
             </p>
 
             <div className="grid grid-cols-5 mx-8 gap-4 mt-8">
@@ -123,7 +121,7 @@ export function TeacherItem({ classe }: Teacher) {
                 <p className="font-poppins-regular text-sm text-text-complement flex items-center gap-4">
                     Preço/hora
                     <strong className="font-archivo-bold text-xl text-purple">
-                        R$ {classe.cost},00
+                        R$ {cost},00
                     </strong>
                 </p>
                 <button className="flex gap-4 items-center bg-green hover:bg-green-dark cursor-pointer transition py-4 px-10 rounded-lg font-archivo-semibold text-base text-white" >
