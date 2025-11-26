@@ -5,6 +5,7 @@ import proffyLogo from "../../assets/proffy-logo.svg"
 import foundIcon from "../../assets/found-icon.svg"
 import { Select } from "../../components/select"
 import { InputCustom } from "../../components/input-custom"
+import { TeacherItem } from "../../components/teacher-item";
 
 export function TeacherList() {
     return (
@@ -86,7 +87,7 @@ export function TeacherList() {
             </div>
 
             <main className="flex flex-col w-full max-w-4xl justify-center mb-10 overflow-hidden">
-
+                <TeacherItem />
             </main>
         </div>
     )
