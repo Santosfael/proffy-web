@@ -1,4 +1,5 @@
 import type { InputHTMLAttributes } from "react"
+import type { UseFormRegister } from "react-hook-form"
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     name: string
@@ -6,6 +7,9 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     labelColor?: "text-text-purple-base" | "text-text-complement"
     bgColor?: "bg-white" | "bg-white-shape"
     spanLabel?: string
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    register?: UseFormRegister<any>
+    error?: unknown
 }
 
 
@@ -15,6 +19,8 @@ export function InputSearch({
     labelColor = "text-text-purple-base",
     bgColor = "bg-white",
     spanLabel,
+    register,
+    error,
     ...rest }: InputProps) {
 
     return (
@@ -32,8 +38,8 @@ export function InputSearch({
             <div className="relative w-full">
             <input
                 type="text"
-                name=""
                 id={name}
+                {...(register ? register(name) : {})}
                 { ...rest }
                 className={
                         `peer
@@ -45,7 +51,7 @@ export function InputSearch({
                         font-poppins-regular
                         text-base
                         placeholder:text-text-input
-                        border-gray-lines-in-white
+                        ${error ? "border-red-500" : "border-gray-lines-in-white"}
                         border-1
                         pr-2`
                     }

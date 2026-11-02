@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react"
 import type { SelectHTMLAttributes } from "react"
+import type { UseFormRegister } from "react-hook-form"
 
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
     name: string
@@ -12,6 +13,9 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
         label: string
     }>
     optionDefault: string
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    register?: UseFormRegister<any>
+    error?: unknown
 }
 
 
@@ -23,6 +27,8 @@ export function Select({
     spanLabel,
     options,
     optionDefault,
+    register,
+    error,
     ...rest }: SelectProps) {
     return (
         <>
@@ -39,6 +45,8 @@ export function Select({
             <div className="relative w-full">
                 <select
                     id={name}
+                    defaultValue=""
+                    {...(register ? register(name) : {})}
                     {...rest}
                     className={`
                         w-full h-[56px]
@@ -52,7 +60,7 @@ export function Select({
                         font-poppins-regular
                         text-base
                         text-text-input
-                        border-gray-lines-in-white
+                        ${error ? "border-red-500" : "border-gray-lines-in-white"}
                         border-1
                         appearance-none
                     `}
@@ -60,7 +68,6 @@ export function Select({
                     <option
                         value=""
                         disabled
-                        selected
                         hidden
                         className="font-poppins-regular text-base text-text-input"
                     >

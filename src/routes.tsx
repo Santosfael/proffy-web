@@ -7,11 +7,13 @@ import { Forgot } from "./pages/auth/forgot"
 import { ForgotSend } from "./pages/auth/forgot-send"
 import { TeatcheList } from "./pages/app/teacher-list"
 import { TeacherForms } from "./pages/app/teacher-forms"
+import { TeacherFormsCompleted } from "./pages/app/teacher-forms-completed"
 
 export const router = createBrowserRouter([
     { path: '/', element: <Home/> },
     { path: '/study', element: <TeatcheList /> },
     { path: '/give-classes', element: <TeacherForms /> },
+    { path: '/give-classes/register-completed', element: <TeacherFormsCompleted /> },
     { path: '/sign-in', element: <SignIn/> },
     { path: '/',
         children: [

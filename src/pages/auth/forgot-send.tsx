@@ -18,9 +18,8 @@ export function ForgotSend() {
 
                 <div className="w-[185px] mt-10">
                      <Button
-                        text="Voltar ao login"
+                        title="Voltar ao login"
                         type="button"
-                        link="/sign-in"
                         disabled={false}
                     />
                 </div>

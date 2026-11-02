@@ -1,4 +1,5 @@
 import type { TextareaHTMLAttributes } from "react"
+import type { UseFormRegister } from "react-hook-form"
 
 interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
     name: string
@@ -6,6 +7,9 @@ interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
     labelColor?: "text-text-purple-base" | "text-text-complement"
     bgColor?: "bg-white" | "bg-white-shape"
     spanLabel?: string
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    register?: UseFormRegister<any>
+    error?: unknown
 }
 
 
@@ -15,6 +19,8 @@ export function TextArea({
     labelColor = "text-text-purple-base",
     bgColor = "bg-white",
     spanLabel,
+    register,
+    error,
     ...rest }: TextAreaProps) {
 
     return (
@@ -31,8 +37,8 @@ export function TextArea({
 
             <div className="relative w-full">
             <textarea
-                name=""
                 id={name}
+                {...(register ? register(name) : {})}
                 { ...rest }
                 className={
                         `peer
@@ -44,7 +50,7 @@ export function TextArea({
                         font-poppins-regular
                         text-base
                         placeholder:text-text-input
-                        border-gray-lines-in-white
+                        ${error ? "border-red-500" : "border-gray-lines-in-white"}
                         border-1
                         resize-y
                         min-h-[160px]

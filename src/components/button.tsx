@@ -1,24 +1,23 @@
-import { Link } from "react-router"
+import type { ButtonHTMLAttributes } from "react"
 
-type ButtonProps = {
-    type?: "button" | "submit" | "reset"
-    text: string
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    title: string
     disabled?: boolean
-    link?: string
 }
 
-export function Button({ type = "submit", text, disabled = false, link = "" }: ButtonProps) {
+export function Button({ title, disabled, ...rest }: ButtonProps) {
     return (
         <button
-            type={type}
-            disabled={disabled}
-            className={`w-full p-5 border-none rounded-lg font-archivo-semibold mt-10
+        {...rest}
+        disabled={disabled}
+        className={`w-full p-5 border-none rounded-lg font-archivo-semibold mt-10
             ${disabled
-            ? "bg-gray-shape text-text-complement cursor-not-allowed" 
-            : "bg-green opacity-90 hover:bg-green hover:opacity-100 transition text-white cursor-pointer"
-            }`}
+                ? "bg-gray-shape text-text-complement cursor-not-allowed"
+                : "bg-green opacity-90 hover:bg-green hover:opacity-100 transition text-white cursor-pointer"
+            }
+        `}
         >
-            {text}
+            {title}
         </button>
     )
 }
